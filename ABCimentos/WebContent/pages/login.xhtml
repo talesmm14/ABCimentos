@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+		<meta charset="utf-8" name="viewport"
+			content="width=device-width, initial-scale=1"
+			http-equiv="X-UA-Conpatible" />
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<title>AB Cimentos</title>
+		<style type="text/css">
+			.login-form {
+				width: 340px;
+		    	margin: 50px auto;
+			}
+		    .login-form form {
+		    	margin-bottom: 15px;
+		        background: #f7f7f7;
+		        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		        padding: 30px;
+		    }
+		    .login-form h2 {
+		        margin: 0 0 15px;
+		    }
+		    .form-control, .btn {
+		        min-height: 38px;
+		        border-radius: 2px;
+		    }
+		    .btn {        
+		        font-size: 15px;
+		        font-weight: bold;
+		    }
+		</style>
+	</h:head>
+
+	<body>
+		<div class="login-form">
+		    <form action="/examples/actions/confirmation.php" method="post">
+		        <h2 class="text-center">Entrar ABCimentos</h2>       
+		        <div class="form-group">
+		       		<h:outputLabel value="Usuario" styleClass="control-label" />
+		        	<h:inputText value="#{loginController.usuario.login}" type="text" class="form-control" required="required"/>
+		        </div>
+		        <div class="form-group">
+		        	<h:outputLabel value="Senha" styleClass="control-label" />
+		        	<h:inputSecret value="#{loginController.usuario.senha}" type="text" class="form-control" required="required"/>
+		        </div>
+		        <div class="form-group">
+		            <h:commandButton value="Entrar" type="submit" class="btn btn-primary btn-block"/>
+		        </div>
+		    </form>
+		</div>
+	</body>
+</html>
