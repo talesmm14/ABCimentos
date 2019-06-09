@@ -83,7 +83,9 @@
 						<div class="col-md-3 mb-3">
 							<h:commandButton value="Limpar"
 								actionListener="#{usuarioController.limpar}"
-								styleClass="col-md-2 mb-3 btn btn-default form-control" />
+								styleClass="col-md-2 mb-3 btn btn-default form-control" >
+									<f:ajax execute="@this" render="@all" />
+								</h:commandButton>
 						</div>
 					</div>
 					</h:form>
@@ -92,6 +94,36 @@
 					
 					<h:form id="formDataTable" styleClass="form-horizontal">
 					<div class="md-3">
+
+						<h:dataTable value="#{usuarioController.listaUsuario}" var="obj"
+							styleClass="table table-striped table-hover">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{obj.id}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:commandLink value="#{obj.nome}"
+								actionListener="#{usuarioController.editar(obj.id)}"/>
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Login</f:facet>
+								<h:commandLink value="#{obj.login}"
+									actionListener="#{usuarioController.editar(obj.id)}" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Senha</f:facet>
+								<h:outputLabel value="##########" />
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">Perfil</f:facet>
+								<h:outputLabel value="#{obj.perfil.label}" />
+							</h:column>
+						</h:dataTable>
 					</div>
 				</h:form>
 				</div>
