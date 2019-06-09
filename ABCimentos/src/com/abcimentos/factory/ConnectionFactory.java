@@ -10,6 +10,7 @@ public class ConnectionFactory {
 		// construtor como privado para nao criar uma instancia
 	}
 	
+	
 	public static Connection getInstance() {
 		Connection conn = null;
 		
