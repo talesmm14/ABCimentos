@@ -4,7 +4,6 @@ public enum Perfil {
 	
 	ADMINISTRADOR(1, "Administrador"), 
 	GERENTE(2, "Gerente"), 
-	CLIENTE(3, "Cliente"), 
 	FUNCIONARIO(4, "Funcionário");
 
 	private int value;

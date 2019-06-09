@@ -9,7 +9,7 @@
 			content="width=device-width, initial-scale=1"
 			http-equiv="X-UA-Conpatible" />
 		<h:outputStylesheet library="css" name="bootstrap.min.css" />
-		<title>AB Cimentos</title>
+		<title>ABCimentos</title>
 		<style type="text/css">
 			.login-form {
 				width: 340px;
@@ -35,9 +35,9 @@
 		</style>
 	</h:head>
 
-	<body>
+	<h:body>
 		<div class="login-form">
-		    <form action="/examples/actions/confirmation.php" method="post">
+		    <form method="post">
 		        <h2 class="text-center">Entrar ABCimentos</h2>       
 		        <div class="form-group">
 		       		<h:outputLabel value="Usuario" styleClass="control-label" />
@@ -48,9 +48,12 @@
 		        	<h:inputSecret value="#{loginController.usuario.senha}" type="text" class="form-control" required="required"/>
 		        </div>
 		        <div class="form-group">
-		            <h:commandButton value="Entrar" type="submit" class="btn btn-primary btn-block"/>
+		            <h:commandButton value="Entrar" action="#{loginController.entrar}" type="submit" class="btn btn-primary btn-block"/>
+		        </div>
+		        <div class="form-group">
+		            <h:commandButton value="Limpar" action="#{loginController.limpar}" type="submit" class="btn btn-primary btn-block"/>
 		        </div>
 		    </form>
 		</div>
-	</body>
+	</h:body>
 </html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
+	<h:head>
+		<meta charset="utf-8" name="viewport"
+			content="width=device-width, initial-scale=1"
+			http-equiv="X-UA-Conpatible" />
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<title>Cadastro Usuario</title>
+	
+	</h:head>
+		
+	<h:body>
+		<div class="container">
+
+			<div class="navbar navbar-inverse">
+				<div class="navbar-brand" style="width: 100%; text-align: center;">Cadastro de Usuário</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-xs-updated">
+					<h:form styleClass="form-horizontal">
+						<h:messages id="messages" style="color:red" globalOnly="false" />
+						<div class="mb-3">
+							<h:outputLabel value="Nome:" styleClass="control-label" />
+							<h:inputText id="itNome" value="#{usuarioController.usuario.nome}"
+								styleClass="form-control">
+								<f:validateLength minimum="2" maximum="45" />
+							</h:inputText>
+							<h:message for="itNome" style="color:red" />
+						</div>
+						<div class="mb-3">
+							<h:outputLabel value="Email:" styleClass="control-label" />
+							<h:inputText id="itLogin" value="#{usuarioController.usuario.login}"
+							styleClass="form-control" immediate="true" />
+						<h:message for="itLogin	" style="color:red" />
+					</div>
+					<div class="mb-3">
+						<h:outputLabel  value="Senha:" styleClass="control-label" />
+						<h:inputSecret id="itSenha" value="#{usuarioController.usuario.senha}"
+							styleClass="form-control" />
+						<h:message for="itSenha" style="color:red" />
+					</div>
+					<div class="mb-3">
+						<h:outputLabel value="Perfil de Usuário:"
+							styleClass="control-label" />
+						<h:selectOneListbox value="#{usuarioController.usuario.perfil}"
+							styleClass="form-control" size="1" style="height: 34px;">
+
+							<f:selectItem itemLabel="Selecione ..." />
+							<f:selectItems value="#{usuarioController.listaPerfil}"
+								var="perfil" itemLabel="#{perfil.label}" itemValue="#{perfil}" />
+						</h:selectOneListbox>
+					</div>
+					<hr />
+
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<h:commandButton value="Incluir"
+								disabled="#{usuarioController.usuario.id != null}"
+								actionListener="#{usuarioController.incluir}"
+								styleClass="col-md-2 mb-3 btn btn-default form-control">
+								<f:ajax execute="@form" render="@form formDataTable" />
+							</h:commandButton>
+						</div>
+						<div class="col-md-3 mb-3">
+							<h:commandButton value="Alterar"
+								disabled="#{usuarioController.usuario.id == null}"
+								actionListener="#{usuarioController.alterar}"
+								styleClass="btn btn-default form-control">
+								<f:ajax execute="@form" render="@form formDataTable" />
+							</h:commandButton>
+						</div>
+						<div class="col-md-3 mb-3">
+							<h:commandButton value="Excluir"
+								disabled="#{usuarioController.usuario.id == null}"
+								actionListener="#{usuarioController.excluir}"
+								styleClass="col-md-2 mb-3 btn btn-default form-control">
+								<f:ajax render="@form formDataTable" />
+							</h:commandButton>
+						</div>
+						<div class="col-md-3 mb-3">
+							<h:commandButton value="Limpar"
+								actionListener="#{usuarioController.limpar}"
+								styleClass="col-md-2 mb-3 btn btn-default form-control" />
+						</div>
+					</div>
+					</h:form>
+					
+					<hr/>
+					
+					<h:form id="formDataTable" styleClass="form-horizontal">
+					<div class="md-3">
+					</div>
+				</h:form>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</html>
