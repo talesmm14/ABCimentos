@@ -37,23 +37,23 @@
 
 	<h:body>
 		<div class="login-form">
-		    <form method="post">
+		    <h:form method="post">
 		        <h2 class="text-center">Entrar ABCimentos</h2>       
 		        <div class="form-group">
-		       		<h:outputLabel value="Usuario" styleClass="control-label" />
-		        	<h:inputText value="#{loginController.usuario.login}" type="text" class="form-control" required="required"/>
+		       		<h:outputLabel value="Usuario" />
+		        	<h:inputText value="#{loginController.usuario.login}" class="form-control" />
 		        </div>
 		        <div class="form-group">
-		        	<h:outputLabel value="Senha" styleClass="control-label" />
-		        	<h:inputSecret value="#{loginController.usuario.senha}" type="text" class="form-control" required="required"/>
+		        	<h:outputLabel value="Senha" />
+		        	<h:inputSecret value="#{loginController.usuario.senha}" class="form-control" />
 		        </div>
 		        <div class="form-group">
-		            <h:commandButton value="Entrar" action="#{loginController.entrar}" type="submit" class="btn btn-primary btn-block"/>
+		            <h:commandButton value="Entrar" action="#{loginController.entrar}" class="btn btn-primary btn-block"/>
 		        </div>
 		        <div class="form-group">
-		            <h:commandButton value="Limpar" action="#{loginController.limpar}" type="submit" class="btn btn-primary btn-block"/>
+		            <h:commandButton value="Limpar" action="#{loginController.limpar}" class="btn btn-primary btn-block"/>
 		        </div>
-		    </form>
+		    </h:form>
 		</div>
 	</h:body>
 </html>

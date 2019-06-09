@@ -19,13 +19,19 @@ public class LoginController {
 		// gerando o hash da senha informada na tela de login
 		String senhaEncriptada = Util.encrypt(getUsuario().getSenha());
 		
+		System.out.print(getUsuario().toString());
+		
 		Usuario usuLogado = dao.findUsuario(getUsuario().getLogin(), senhaEncriptada);
+		
+		System.out.print("Passou aqui");
 		
 		// comparando os dados da tela de login com o banco de dados
 		if (usuLogado != null) {
 			Session.getInstance().setAttribute("usuarioLogado", usuLogado);
 			// login valido
 			Util.redirect("menu.xhtml");
+			
+			System.out.print("Entrou");
 		} else 
 			Util.addMessageError("Usuário ou senha inválido.");
 		

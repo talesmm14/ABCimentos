@@ -18,7 +18,7 @@ import com.abcimentos.model.Usuario;
 @ViewScoped
 public class UsuarioController implements Serializable {
 
-	private static final long serialVersionUID = 1646118458024979829L;
+	private static final long serialVersionUID = -2916263609817474837L;
 
 	private Usuario usuario;
 	
