@@ -65,10 +65,8 @@ public class UsuarioDAO extends DAO<Usuario> {
 										+ " nome, "
 										+ " login, "
 										+ " senha, "
-										+ " perfil,"
-										
+										+ " perfil )"
 										+ "VALUES ( "
-										+ " ?, "
 										+ " ?, "
 										+ " ?, "
 										+ " ?,"
@@ -111,7 +109,6 @@ public class UsuarioDAO extends DAO<Usuario> {
 												   + "  login = ?, "
 												   + "  senha = ?, "
 												   + "  perfil = ?,  "
-												 
 												   + "WHERE id = ? ");
 			stat.setString(1, obj.getNome());
 			stat.setString(2, obj.getLogin());
