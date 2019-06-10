@@ -1,9 +1,16 @@
 package com.abcimentos.model;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class Cliente {
 	private Integer id;
 	private String nome;
+	
+	@CPF(message="CPF Inválido")
 	private String cpf;
+	
+	@CNPJ(message="CNPJ Inválido")
 	private String cnpj;
 	private String endereco;
 	private String cidade;

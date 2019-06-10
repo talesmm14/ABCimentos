@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="menu.css" />
+	<title>_ABCimentos_</title>
+
+</h:head>
+<h:body>
+	<div class="admin-panel clearfix">
+		<div class="slidebar">
+			<div class="logo">
+				<a href="menu.xhtml"></a>
+			</div>
+			<ul>
+				<li><a href="menu.xhtml" id="targeted">Dashboard</a></li>
+				<li><a href="cliente.xhtml">Clientes</a></li>
+				<li><a href="produto.xhtml">Produtos</a></li>
+				<li><a href="usuario.xhtml">Funcionarios</a></li>
+				<li><a href="#">Cadastrar Produtos</a></li>
+				<li><a href="cadastroClientes.xhtml">Cadastrar Clientes</a></li>
+				<li><a href="cadastroUsuarios.xhtml">Cadastrar Funcioario</a></li>
+
+			</ul>
+		</div>
+		<div class="main">
+			<ul class="topbar clearfix">
+				<li><a href="#">teste</a></li>
+				<li><a href="login.xhtml">Sair</a></li>
+			</ul>
+			<h2 class="header">
+				<span class="icon"></span> Cadastrar Funcionario
+			</h2>
+			<div class="quick-press">
+				<div class="clearfix">
+					<h:form styleClass="form-horizontal">
+						<h:messages id="messages" style="color:red" globalOnly="false" />
+						<div class="mb-3">
+							<h:outputLabel value="Nome:" styleClass="control-label" />
+							<h:inputText id="itNome"
+								value="#{produtoController.produto.nome}"
+								styleClass="form-control">
+								<f:validateLength minimum="2" maximum="45" />
+							</h:inputText>
+							<h:message for="itNome" style="color:red" />
+						</div>
+
+						<div class="mb-3">
+							<h:outputLabel value="Descrição:" styleClass="control-label" />
+							<h:inputText id="itDes"
+								value="#{produtoController.produto.descricao}"
+								styleClass="form-control">
+							</h:inputText>
+							<h:message for="itDes" style="color:red" />
+						</div>
+
+						<div class="mb-3">
+							<h:outputLabel value="Quantidade:" styleClass="control-label" />
+							<h:inputText id="itQuant"
+								value="#{produtoController.produto.quantidade}"
+								styleClass="form-control">
+							</h:inputText>
+							<h:message for="itQuant" style="color:red" />
+						</div>
+
+						<div class="mb-3">
+							<h:outputLabel value="Peso:" styleClass="control-label" />
+							<h:inputText id="itPeso"
+								value="#{produtoController.produto.peso}"
+								styleClass="form-control">
+							</h:inputText>
+							<h:message for="itPeso" style="color:red" />
+						</div>
+
+						<div class="mb-3">
+							<h:outputLabel value="Unidade:" styleClass="control-label" />
+							<h:inputText id="itUni"
+								value="#{produtoController.produto.unidade}"
+								styleClass="form-control">
+							</h:inputText>
+							<h:message for="itUni" style="color:red" />
+						</div>
+
+						<hr />
+
+						<div class="row">
+							<div class="col-md-3 mb-3">
+								<h:commandButton value="Incluir"
+									disabled="#{produtoController.produto.id != null}"
+									actionListener="#{produtoController.incluir}"
+									styleClass="col-md-2 mb-3 btn btn-default form-control">
+									<f:ajax execute="@form" render="@form formDataTable" />
+								</h:commandButton>
+							</div>
+							<div class="col-md-3 mb-3">
+								<h:commandButton value="Alterar"
+									disabled="#{produtoController.produto.id == null}"
+									actionListener="#{produtoController.alterar}"
+									styleClass="btn btn-default form-control">
+									<f:ajax execute="@form" render="@form formDataTable" />
+								</h:commandButton>
+							</div>
+							<div class="col-md-3 mb-3">
+								<h:commandButton value="Excluir"
+									disabled="#{produtoController.produto.id == null}"
+									actionListener="#{produtoController.excluir}"
+									styleClass="col-md-2 mb-3 btn btn-default form-control">
+									<f:ajax render="@form formDataTable" />
+								</h:commandButton>
+							</div>
+							<div class="col-md-3 mb-3">
+								<h:commandButton value="Limpar"
+									actionListener="#{produtoController.limpar}"
+									styleClass="col-md-2 mb-3 btn btn-default form-control">
+									<f:ajax execute="@this" render="@all" />
+								</h:commandButton>
+							</div>
+						</div>
+					</h:form>
+
+					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

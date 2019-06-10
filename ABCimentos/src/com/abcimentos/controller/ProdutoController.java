@@ -6,10 +6,14 @@ import java.util.List;
 
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import com.abcimentos.dao.ProdutoDAO;
 import com.abcimentos.model.Produto;
 
+@Named
+@ViewScoped
 public class ProdutoController  implements Serializable {
 
 	private static final long serialVersionUID = 2425685236772104473L;
@@ -75,15 +79,16 @@ public class ProdutoController  implements Serializable {
 		produto = null;
 	}
 
-	private Produto getProduto() {
+	public Produto getProduto() {
 		if (produto == null) {
 			produto = new Produto();
 		}
 		return produto;
 	}
 
-	private void setProduto(Produto produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
 	
 }

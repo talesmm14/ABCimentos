@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import com.abcimentos.dao.ClienteDAO;
 import com.abcimentos.model.Cliente;
 import com.abcimentos.model.Estado;
 
-
+@Named
+@ViewScoped
 public class ClienteController  implements Serializable {
 
 	private static final long serialVersionUID = -8151757899967428436L;
@@ -80,15 +83,17 @@ public class ClienteController  implements Serializable {
 		cliente = null;
 	}
 
-	private Cliente getCliente() {
+	public Cliente getCliente() {
 		if (cliente == null) {
 			cliente = new Cliente();
 		}
 		return cliente;
 	}
 
-	private void setCliente(Cliente cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	
 	
 }
