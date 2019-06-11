@@ -34,47 +34,67 @@
 				<li><a href="#">teste</a></li>
 				<li><a href="login.xhtml">Sair</a></li>
 			</ul>
-			<h2 class="header"><span class="icon"></span>Funcionarios</h2>
-			<div class="funcionarios">
-						<div class="row">
-							<div class="col-xs-12 col-xs-updated">
-								<h:form id="formDataTableFunc" styleClass="form-horizontal">
-									<div class="md-3">
-
-										<h:dataTable value="#{usuarioController.listaUsuario}"
-											var="obj" styleClass="table table-striped table-hover">
-											<h:column>
-												<f:facet name="header">Id</f:facet>
-												<h:outputLabel value="#{obj.id}" />
-											</h:column>
-
-											<h:column>
-												<f:facet name="header">Nome</f:facet>
-												<h:commandLink value="#{obj.nome}"
-													actionListener="#{usuarioController.editar(obj.id)}" />
-											</h:column>
-
-											<h:column>
-												<f:facet name="header">Login</f:facet>
-												<h:commandLink value="#{obj.login}"
-													actionListener="#{usuarioController.editar(obj.id)}" />
-											</h:column>
-
-											<h:column>
-												<f:facet name="header">Senha</f:facet>
-												<h:outputLabel value="##########" />
-											</h:column>
-
-											<h:column>
-												<f:facet name="header">Perfil</f:facet>
-												<h:outputLabel value="#{obj.perfil.label}" />
-											</h:column>
-										</h:dataTable>
-									</div>
-								</h:form>
-							</div>
+			<div class="quick-press">
+				<div class="clearfix">
+					<div class="md-3">
+						<div class="ui-inputgroup">
+								<h2>Pesquisar</h2>
+								<h:outputLabel value="Nome:" styleClass="control-label" />
+								<h:inputText value="#{consultaUsuarioController.nome}" />
+								<h:commandButton value="Pesquisar" styleClass="white-button"
+									actionListener="#{consultaUsuarioController.pesquisar}">
+									<f:ajax execute="panelForm" render="@all" />
+								</h:commandButton>
+							</form>
+							<hr />
 						</div>
 					</div>
+				</div>
+			</div>
+			<h2 class="header">
+				<span class="icon"></span>Funcionarios
+			</h2>
+			<div class="funcionarios">
+				<div class="quick-press">
+					<div class="clearfix">
+						<h:form id="formDataTableFunc" styleClass="form-horizontal">
+
+							<div class="md-3">
+
+								<h:dataTable value="#{consultaUsuarioController.listaUsuario}"
+									var="obj" styleClass="table table-striped table-hover">
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										<h:outputLabel value="#{obj.id}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										<h:commandLink value="#{obj.nome}"
+											actionListener="#{consultaUsuarioController.editar(obj.id)}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Login</f:facet>
+										<h:commandLink value="#{obj.login}"
+											actionListener="#{consultaUsuarioController.editar(obj.id)}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Senha</f:facet>
+										<h:outputLabel value="##########" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Perfil</f:facet>
+										<h:outputLabel value="#{obj.perfil.label}" />
+									</h:column>
+								</h:dataTable>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </h:body>

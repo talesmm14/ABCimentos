@@ -34,6 +34,24 @@
 				<li><a href="#">teste</a></li>
 				<li><a href="login.xhtml">Sair</a></li>
 			</ul>
+			<div class="quick-press">
+				<div class="clearfix">
+					<div class="md-3">
+						<div class="ui-inputgroup">
+							<form action="" method="post">
+								<h2>Pesquisar</h2>
+								<h:outputLabel value="Nome:" styleClass="control-label" />
+								<h:inputText value="#{consultaClienteController.nome}" />
+								<h:commandButton value="Pesquisar" styleClass="white-button"
+									actionListener="#{consultaClienteController.pesquisar}">
+									<f:ajax execute="panelForm" render="@all" />
+								</h:commandButton>
+							</form>
+							<hr />
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="clientes">
 				<h2 class="header">
 					<span class="icon"></span>Clientes
@@ -53,7 +71,7 @@
 
 										<h:column>
 											<f:facet name="header">Nome</f:facet>
-											<h:commandLink value="#{obj.nome}"
+											<h:commandLink value="#{cliente.nome}"
 												actionListener="#{clienteController.editar(cliente.id)}" />
 										</h:column>
 
@@ -79,7 +97,7 @@
 
 										<h:column>
 											<f:facet name="header">Estado</f:facet>
-											<h:outputLabel value="#{cliente.Estado.label}" />
+											<h:outputLabel value="#{cliente.estado.label}" />
 										</h:column>
 
 										<h:column>

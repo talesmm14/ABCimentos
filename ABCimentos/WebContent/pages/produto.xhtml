@@ -34,51 +34,70 @@
 				<li><a href="#">teste</a></li>
 				<li><a href="login.xhtml">Sair</a></li>
 			</ul>
-			<h2 class="header"><span class="icon"></span>Produtos</h2>
+			<div class="quick-press">
+				<div class="clearfix"></div>
+			</div>
+			<h2 class="header">
+				<span class="icon"></span>Produtos
+			</h2>
 			<div class="produtos">
-						<div class="row">
-							<div class="col-xs-12 col-xs-updated">
-								<h:form id="formDataTablePro" styleClass="form-horizontal">
-									<div class="md-3">
+				<div class="row">
+					<div class="col-xs-12 col-xs-updated">
+						<h:form id="formDataTablePro" styleClass="form-horizontal">
 
-										<h:dataTable value="#{produtoController.listaProduto}"
-											var="produto" styleClass="table table-striped table-hover">
-											<h:column>
-												<f:facet name="header">Id</f:facet>
-												<h:outputLabel value="#{produto.id}" />
-											</h:column>
+							<div class="md-3">
+								<hr/>
+								<h:panelGrid id="panelForm" columns="3">
 
-											<h:column>
-												<f:facet name="header">Nome</f:facet>
-												<h:commandLink value="#{produto.nome}"
-													actionListener="#{produtoController.editar(produto.id)}" />
-											</h:column>
+									<h:outputLabel value="Nome: " />
+									<h:inputText value="#{consultaProdutosController.nome}" />
 
-											<h:column>
-												<f:facet name="header">Descrição</f:facet>
-												<h:commandLink value="#{produto.descricao}"/>
-											</h:column>
+									<h:commandButton value="Pesquisar"
+										actionListener="#{consultaProdutosController.pesquisar}">
+										<f:ajax execute="panelForm" render="@all" />
+									</h:commandButton>
 
-											<h:column>
-												<f:facet name="header">Quantidade</f:facet>
-												<h:outputLabel value="#{produto.quantidade}" />
-											</h:column>
+								</h:panelGrid>
+								<hr/>
+								
+								<h:dataTable value="#{consultaProdutosController.}" var="produto" 
+										styleClass="table table-striped table-hover">
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										<h:outputLabel value="#{produto.id}" />
+									</h:column>
 
-											<h:column>
-												<f:facet name="header">Peso</f:facet>
-												<h:outputLabel value="#{produto.peso}" />
-											</h:column>
-											
-											<h:column>
-												<f:facet name="header">Unidade</f:facet>
-												<h:outputLabel value="#{produto.unidade}" />
-											</h:column>
-										</h:dataTable>
-									</div>
-								</h:form>
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										<h:commandLink value="#{produto.nome}"
+											actionListener="#{produtoController.editar(produto.id)}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Descrição</f:facet>
+										<h:commandLink value="#{produto.descricao}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Quantidade</f:facet>
+										<h:outputLabel value="#{produto.quantidade}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Peso</f:facet>
+										<h:outputLabel value="#{produto.peso}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">Unidade</f:facet>
+										<h:outputLabel value="#{produto.unidade}" />
+									</h:column>
+								</h:dataTable>
 							</div>
-						</div>
+						</h:form>
 					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </h:body>
