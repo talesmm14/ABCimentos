@@ -1,2 +1,3 @@
-# ABCimentos
-Projeto CRUD de uma empresa de cimentos, feita para a disciplina de Tópicos de Programação 1.
+#AB Cimentos
+Projeto CRUD que visa auxiliar no gerenciamento de vendas de uma empresa do ramo de distribuição de cimento, realizado para a avaliação 2 da disciplina de Tópicos de Programação 1.
+Alunos: Tales Melquiades e Mateus Asevedo
