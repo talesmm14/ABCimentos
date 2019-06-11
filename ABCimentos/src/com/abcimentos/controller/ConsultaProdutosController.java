@@ -16,14 +16,14 @@ import com.abcimentos.model.Produto;
 @Named
 @ViewScoped
 public class ConsultaProdutosController  implements Serializable {
-
-	private static final long serialVersionUID = 5623081009169850829L;
 	
+	private static final long serialVersionUID = -1873406083292977454L;
+
 	private String nome;
 	
 	private List<Produto> listaProduto = null;
 
-	public List<Produto> getListaCliente() {
+	public List<Produto> getListaProduto() {
 		if (listaProduto == null) {
 			ProdutoDAO dao = new ProdutoDAO();
 			listaProduto = dao.findByNome(getNome());
@@ -43,7 +43,7 @@ public class ConsultaProdutosController  implements Serializable {
 		Produto produto = dao.findById(id);
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("produtoFlash", produto);
-		Util.redirect("produto.xhtml");
+		Util.redirect("cadastroProdutos.xhtml");
 	}
 
 	public String getNome() {

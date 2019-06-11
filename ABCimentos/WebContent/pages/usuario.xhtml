@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
@@ -19,7 +18,7 @@
 				<a href="menu.xhtml"></a>
 			</div>
 			<ul>
-				<li><a href="menu.xhtml" id="targeted">Dashboard</a></li>
+				<li><a href="menu.xhtml" id="targeted">Início</a></li>
 				<li><a href="cliente.xhtml">Clientes</a></li>
 				<li><a href="produto.xhtml">Produtos</a></li>
 				<li><a href="#">Funcionarios</a></li>
@@ -31,26 +30,10 @@
 		</div>
 		<div class="main">
 			<ul class="topbar clearfix">
-				<li><a href="#">teste</a></li>
+				<li><a href="#">Recarregar</a></li>
 				<li><a href="login.xhtml">Sair</a></li>
 			</ul>
-			<div class="quick-press">
-				<div class="clearfix">
-					<div class="md-3">
-						<div class="ui-inputgroup">
-								<h2>Pesquisar</h2>
-								<h:outputLabel value="Nome:" styleClass="control-label" />
-								<h:inputText value="#{consultaUsuarioController.nome}" />
-								<h:commandButton value="Pesquisar" styleClass="white-button"
-									actionListener="#{consultaUsuarioController.pesquisar}">
-									<f:ajax execute="panelForm" render="@all" />
-								</h:commandButton>
-							</form>
-							<hr />
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<h2 class="header">
 				<span class="icon"></span>Funcionarios
 			</h2>
@@ -60,7 +43,22 @@
 						<h:form id="formDataTableFunc" styleClass="form-horizontal">
 
 							<div class="md-3">
+								
+								<hr/>
+								<h:panelGrid id="panelForm" columns="3">
 
+									<h:outputLabel value="Nome: " />
+									<h:inputText value="#{consultaUsuarioController.nome}" />
+
+									<h:commandButton value="Pesquisar"
+										actionListener="#{consultaUsuarioController.pesquisar}">
+										<f:ajax execute="panelForm" render="@all" />
+									</h:commandButton>
+
+								</h:panelGrid>
+								<hr/>
+								
+								
 								<h:dataTable value="#{consultaUsuarioController.listaUsuario}"
 									var="obj" styleClass="table table-striped table-hover">
 									<h:column>

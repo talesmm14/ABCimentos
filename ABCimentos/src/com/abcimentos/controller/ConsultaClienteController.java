@@ -43,7 +43,7 @@ public class ConsultaClienteController  implements Serializable {
 		Cliente cliente = dao.findById(id);
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("clienteFlash", cliente);
-		Util.redirect("cliente.xhtml");
+		Util.redirect("cadastroClientes.xhtml");
 	}
 
 	public String getNome() {

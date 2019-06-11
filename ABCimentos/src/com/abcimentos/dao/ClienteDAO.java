@@ -83,7 +83,7 @@ public class ClienteDAO extends DAO<Cliente>{
 												   + "  endereco = ?, "
 												   + "  cidade = ?, "
 												   + "  estado = ?, "
-												   + "  email = ?,  "
+												   + "  email = ?  "
 												   + "WHERE id = ? ");
 			stat.setString(1, obj.getNome());
 			stat.setString(2, obj.getCpf());

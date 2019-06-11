@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<meta charset="utf-8" name="viewport"
 		content="width=device-width, initial-scale=1"
@@ -19,7 +18,7 @@
 				<a href="menu.xhtml"></a>
 			</div>
 			<ul>
-				<li><a href="menu.xhtml" id="targeted">Dashboard</a></li>
+				<li><a href="menu.xhtml" id="targeted">Início</a></li>
 				<li><a href="cliente.xhtml">Clientes</a></li>
 				<li><a href="#">Produtos</a></li>
 				<li><a href="usuario.xhtml">Funcionarios</a></li>
@@ -31,7 +30,7 @@
 		</div>
 		<div class="main">
 			<ul class="topbar clearfix">
-				<li><a href="#">teste</a></li>
+				<li><a href="#">Recarregar</a></li>
 				<li><a href="login.xhtml">Sair</a></li>
 			</ul>
 			<div class="quick-press">
@@ -60,7 +59,7 @@
 								</h:panelGrid>
 								<hr/>
 								
-								<h:dataTable value="#{consultaProdutosController.}" var="produto" 
+								<h:dataTable value="#{consultaProdutosController.listaProduto}" var="produto" 
 										styleClass="table table-striped table-hover">
 									<h:column>
 										<f:facet name="header">Id</f:facet>
@@ -70,7 +69,7 @@
 									<h:column>
 										<f:facet name="header">Nome</f:facet>
 										<h:commandLink value="#{produto.nome}"
-											actionListener="#{produtoController.editar(produto.id)}" />
+											actionListener="#{consultaProdutosController.editar(produto.id)}" />
 									</h:column>
 
 									<h:column>
