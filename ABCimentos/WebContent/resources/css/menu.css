@@ -91,7 +91,7 @@ body {
 	font-family: 'icomoon';
 	display: block;
 	line-height: 50px;
-	width: 80px;
+	width: 120px;
 	text-align: center;
 	text-decoration: none;
 	color: rgb(102,102,102);
@@ -103,6 +103,10 @@ body {
 .topbar li:first-child a {
 	border: none;
 	border-right: 1px solid rgb(235,235,235);
+}
+
+.topbar .usuario a{
+	width: auto;
 }
 /*mainContent*/
 .mainContent h4 {
