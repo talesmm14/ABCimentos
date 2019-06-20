@@ -18,7 +18,7 @@ public enum Perfil {
 		this.label = label;
 		this.pages = pages;
 	}
-
+	
 	public int getValue() {
 		return value;
 	}
@@ -26,7 +26,7 @@ public enum Perfil {
 	public String getLabel() {
 		return label;
 	}
-	
+
 	public List<String> getPages() {
 		return pages;
 	}

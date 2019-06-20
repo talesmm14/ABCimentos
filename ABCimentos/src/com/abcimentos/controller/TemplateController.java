@@ -9,6 +9,7 @@ import javax.inject.Named;
 import com.abcimentos.application.Session;
 import com.abcimentos.application.Util;
 import com.abcimentos.model.ItemVenda;
+import com.abcimentos.model.Perfil;
 import com.abcimentos.model.Usuario;
 
 
@@ -52,5 +53,12 @@ public class TemplateController implements Serializable {
 		Util.redirect(pagina);
 	}
 	
+	public void disableMenu() {
+		boolean status = false;
+		if(usuarioLogado.getPerfil() != Perfil.ADMINISTRADOR) {
+			status = true;
+			System.out.println("Foi logado krai");
+		}
+	}
 	
 }

@@ -33,13 +33,14 @@
 								action="#{templateController.redirecionar('/ABCimentos/faces/pages/produto.xhtml')}" />
 						</a>
 					</li>
-					<li>
-						<a >
-							<h:commandLink value="Funcionarios" 
-								disabled="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}"
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/usuario.xhtml')}" />
-						</a>
-					</li>
+					<h:panelGroup rendered="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}">
+						<li >
+							<a >
+								<h:commandLink value="Funcionarios"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/usuario.xhtml')}" />
+							</a>
+						</li>
+						</h:panelGroup>
 					<li>
 						<a >
 							<h:commandLink value="Cadastro de Produtos" 
@@ -52,13 +53,12 @@
 								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroClientes.xhtml')}" />
 						</a>
 					</li>
-					<li>
-						<a >
+					<h:panelGroup rendered="#{templateController.usuarioLogado.perfil == Perfil.ADMINISTRADOR}">
+						<li>
 							<h:commandLink value="Cadastrar Funcioario" 
-								disabled="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}"
 								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroUsuarios.xhtml')}" />
-						</a>
-					</li>
+						</li>
+					</h:panelGroup>
 				</ul>
 			</h:form>
 		</div>
@@ -72,15 +72,12 @@
 						</a>
 					</li>
 					<li>
-						<a href="">
 						<h:commandLink value="Sair"
 							action="#{templateController.encerrarSessao}" />
-						</a>
 					</li>
 					<li>
-						<a href="#"><h:commandLink value="Pedido (#{templateController.qtdItensCarrinho})"
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/carrinho.xhtml')}" />
-						</a>	
+						<h:commandLink value="Pedido (#{templateController.qtdItensCarrinho})"
+								action="#{templateController.redirecionar('/ABCimentos/faces/pages/carrinho.xhtml')}" />	
 					</li>
 				</ul>
 			</h:form>
