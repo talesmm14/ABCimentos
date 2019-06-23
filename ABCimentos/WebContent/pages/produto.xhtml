@@ -1,51 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-	<meta charset="utf-8" name="viewport"
-		content="width=device-width, initial-scale=1"
-		http-equiv="X-UA-Conpatible" />
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputStylesheet library="css" name="menu.css" />
-	<title>_ABCimentos_</title>
-
-</h:head>
-<h:body>
-	<div class="admin-panel clearfix">
-		<div class="slidebar">
-			<div class="logo">
-				<a href="menu.xhtml"></a>
-			</div>
-			<ul>
-				<li><a href="menu.xhtml" id="targeted">Início</a></li>
-				<li><a href="cliente.xhtml">Clientes</a></li>
-				<li><a href="#">Produtos</a></li>
-				<li><a href="usuario.xhtml">Funcionarios</a></li>
-				<li><a href="cadastroProdutos.xhtml">Cadastrar Produtos</a></li>
-				<li><a href="cadastroClientes.xhtml">Cadastrar Clientes</a></li>
-				<li><a href="cadastroUsuarios.xhtml">Cadastrar Funcioario</a></li>
-
-			</ul>
-		</div>
-		<div class="main">
-			<ul class="topbar clearfix">
-				<li><a href="#">Recarregar</a></li>
-				<li><a href="login.xhtml">Sair</a></li>
-			</ul>
-			<div class="quick-press">
-				<div class="clearfix"></div>
-			</div>
-			<h2 class="header">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<ui:composition template="../template.xhtml">
+		<ui:define name="conteudo">
+			<h2 class="header" style="text-align: center;">
 				<span class="icon"></span>Produtos
 			</h2>
 			<div class="produtos">
-				<div class="row">
-					<div class="col-xs-12 col-xs-updated">
+				<div class="quick-press">
+					<div class="clearfix">
 						<h:form id="formDataTablePro" styleClass="form-horizontal">
 
 							<div class="md-3">
-								<hr/>
 								<h:panelGrid id="panelForm" columns="3">
 
 									<h:outputLabel value="Nome: " />
@@ -91,13 +59,17 @@
 										<f:facet name="header">Unidade</f:facet>
 										<h:outputLabel value="#{produto.unidade}" />
 									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Valor</f:facet>
+										<h:outputLabel value="#{produto.valor}" />
+									</h:column>
 								</h:dataTable>
 							</div>
 						</h:form>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</h:body>
+		</ui:define>
+		</ui:composition>
 </html>

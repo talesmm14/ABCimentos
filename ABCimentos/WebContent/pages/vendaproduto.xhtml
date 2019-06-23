@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">
+		<h2 class="header" style="text-align: center;">
+			<span class="icon"></span>Venda de Produtos
+		</h2>
+		<div class="venda_de_produtos">
+			<div class="quick-press">
+				<div class="clearfix">
+					<h:form id="formDataTablePro" styleClass="form-horizontal">
+
+						<div class="md-3">
+							<h:panelGrid id="panelForm" columns="3">
+
+								<h:outputLabel value="Nome do Produto: " />
+								<h:inputText value="#{vendaProdutoController.nome}" />
+
+								<h:commandButton value="Pesquisar"
+									actionListener="#{vendaProdutoController.pesquisar}">
+									<f:ajax execute="panelForm" render="@all" />
+								</h:commandButton>
+
+							</h:panelGrid>
+							<hr />
+							<br />
+
+							<h:dataTable value="#{vendaProdutoController.listaProduto}"
+								var="produto" styleClass="table table-striped table-hover">
+								<h:column>
+									<f:facet name="header">Id</f:facet>
+									<h:outputLabel value="#{produto.id}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Nome</f:facet>
+									<h:commandLink value="#{produto.nome}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Descrição</f:facet>
+									<h:commandLink value="#{produto.descricao}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Quantidade</f:facet>
+									<h:outputLabel value="#{produto.quantidade}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Peso</f:facet>
+									<h:outputLabel value="#{produto.peso}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Unidade</f:facet>
+									<h:outputLabel value="#{produto.unidade}" />
+								</h:column>
+
+								<h:column>
+									<f:facet name="header">Valor</f:facet>
+									<h:outputLabel value="#{produto.valor}" />
+									<h:commandButton value="Adicionar Carrinho"
+										actionListener="#{vendaProdutoController.adicionar(produto.id)}">
+										<f:ajax render="@all" execute="@this" />
+									</h:commandButton>
+								</h:column>
+							</h:dataTable>
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

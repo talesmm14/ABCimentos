@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">
+			<h2 class="header" style="text-align: center;">
+				<span class="icon"></span>Detalhes da Venda
+			</h2>
+			<div class="detallhes_da_venda">
+				<div class="quick-press">
+					<div class="clearfix">
+						<h:form id="formDataTablePro" styleClass="form-horizontal">
+
+							<h:messages id="messages" style="color:red" globalOnly="false"  />
+		
+							<div class="mb-3">
+								<h:outputLabel value="Cliente: " styleClass="control-label" />
+								<h:outputText value=" #{detalhesVendaController.venda.cliente}" styleClass="control-label" />
+							</div>
+							<div class="mb-3">
+								<h:outputLabel value="Data da Venda: " styleClass="control-label" />
+								<h:outputText value=" #{detalhesVendaController.venda.data}" styleClass="control-label" >
+									<f:convertDateTime type="localDate" pattern="dd-MM-yyyy"/>
+								</h:outputText>
+							</div>
+							<div class="mb-3">
+								<h:outputLabel value="Total da venda: " styleClass="control-label" />
+								<h:outputText value=" #{detalhesVendaController.venda.totalVenda}" styleClass="control-label" >
+									<f:convertNumber  locale="pt_BR" currencySymbol="R$" type="currency"/>
+								</h:outputText>
+							</div>
+							
+							<hr/>
+							
+							<div class="mb-3">
+								<h:outputLabel value="Itens vendidos: " styleClass="control-label" />
+								<h:dataTable value="#{detalhesVendaController.venda.listaItemVenda}" var="obj" styleClass="table table-striped table-hover">>
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										<h:outputLabel value="#{obj.produto.nome}" />
+									</h:column>
+									
+									<h:column>
+										<f:facet name="header">Valor</f:facet>
+										<h:outputLabel value="#{obj.valor}">
+											<f:convertNumber  locale="pt_BR" currencySymbol="R$" type="currency"/>
+										</h:outputLabel>
+									</h:column>
+					
+								</h:dataTable>
+							</div>
+							<div class="mb-3">								
+								<h:commandButton value="Voltar" onclick="history.go(-1); return false;" styleClass="col-md-2 mb-3 btn btn-default form-control" />
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+</ui:define>
+</ui:composition>	
+	
+</html>

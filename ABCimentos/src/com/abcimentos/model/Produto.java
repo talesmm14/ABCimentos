@@ -7,6 +7,7 @@ public class Produto {
 	private Integer quantidade;
 	private String peso;
 	private String unidade;
+	private Double valor;
 	
 	public Integer getId() {
 		return id;
@@ -43,5 +44,11 @@ public class Produto {
 	}
 	public void setUnidade(String unidade) {
 		this.unidade = unidade;
+	}
+	public Double getValor() {
+		return valor;
+	}
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 }

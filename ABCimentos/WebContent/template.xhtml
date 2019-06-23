@@ -8,7 +8,7 @@
 		content="width=device-width, initial-scale=1"
 		http-equiv="X-UA-Conpatible" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputStylesheet library="css" name="menu.css" />
+	<h:outputStylesheet library="css" name="template.css" />
 	<title>_ABCimentos_</title>
 </h:head>
 <h:body>
@@ -20,7 +20,7 @@
 			</div>
 			<h:form>
 				<ul>
-					<li><a href="#" id="targeted">Início</a></li>
+					<li><a href="template.xhtml" id="targeted">Início</a></li>
 					<li>
 						<a >
 							<h:commandLink value="Clientes" 
@@ -59,6 +59,24 @@
 								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroUsuarios.xhtml')}" />
 						</li>
 					</h:panelGroup>
+					<li>
+						<a >
+							<h:commandLink value="Pedido" 
+								action="#{templateController.redirecionar('/ABCimentos/faces/pages/vendaproduto.xhtml')}" />
+						</a>
+					</li>
+					<li>
+						<a >
+							<h:commandLink value="Detalhes Venda" 
+								action="#{templateController.redirecionar('/ABCimentos/faces/pages/detalhesvenda.xhtml')}" />
+						</a>
+					</li>
+					<li>
+						<a >
+							<h:commandLink value="Histórico" 
+								action="#{templateController.redirecionar('/ABCimentos/faces/pages/historico.xhtml')}" />
+						</a>
+					</li>
 				</ul>
 			</h:form>
 		</div>

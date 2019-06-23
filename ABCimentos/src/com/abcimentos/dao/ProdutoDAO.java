@@ -28,8 +28,10 @@ public class ProdutoDAO extends DAO<Produto> {
 										+ " descricao, "
 										+ " quantidade, "
 										+ " peso, "
-										+ " unidade )"
+										+ " unidade, "
+										+ " valor )"
 										+ "VALUES ( "
+										+ " ?, "
 										+ " ?, "
 										+ " ?, "
 										+ " ?, "
@@ -40,6 +42,7 @@ public class ProdutoDAO extends DAO<Produto> {
 			stat.setInt(3, obj.getQuantidade());	
 			stat.setString(4, obj.getPeso());
 			stat.setString(5, obj.getUnidade());
+			stat.setDouble(6,  obj.getValor());
 			
 			stat.execute();
 			Util.addMessageError("Cadastro realizado com sucesso!");
@@ -74,15 +77,17 @@ public class ProdutoDAO extends DAO<Produto> {
 												   + "  descricao = ?, "
 												   + "  quantidade = ?, "
 												   + "  peso = ?,  "
-												   + "  unidade = ?  "
+												   + "  unidade = ?,  "
+												   + "  valor = ?  "
 												   + "WHERE id = ? ");
 			stat.setString(1, obj.getNome());
 			stat.setString(2, obj.getDescricao());
 			stat.setInt(3, obj.getQuantidade());	
 			stat.setString(4, obj.getPeso());
 			stat.setString(5, obj.getUnidade());
+			stat.setDouble(6, obj.getValor());
 			
-			stat.setInt(6, obj.getId());
+			stat.setInt(7, obj.getId());
 			
 			stat.execute();
 			Util.addMessageError("Alteração realizada com sucesso!");
@@ -155,6 +160,7 @@ public class ProdutoDAO extends DAO<Produto> {
 						produto.setQuantidade(rs.getInt("quantidade"));	
 						produto.setPeso(rs.getString("peso"));
 						produto.setUnidade(rs.getString("unidade"));
+						produto.setValor(rs.getDouble("valor"));
 						
 					}
 				} catch (SQLException e) {
@@ -193,6 +199,7 @@ public class ProdutoDAO extends DAO<Produto> {
 						produto.setQuantidade(rs.getInt("quantidade"));	
 						produto.setPeso(rs.getString("peso"));
 						produto.setUnidade(rs.getString("unidade"));
+						produto.setValor(rs.getDouble("valor"));
 						
 
 						listaProduto.add(produto);
@@ -235,6 +242,7 @@ public class ProdutoDAO extends DAO<Produto> {
 						produto.setQuantidade(rs.getInt("quantidade"));	
 						produto.setPeso(rs.getString("peso"));
 						produto.setUnidade(rs.getString("unidade"));
+						produto.setValor(rs.getDouble("valor"));
 						
 
 						ListaProduto.add(produto);
