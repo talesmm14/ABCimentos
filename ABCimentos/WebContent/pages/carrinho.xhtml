@@ -28,6 +28,12 @@
 
 						<h:dataTable value="#{carrinhoController.venda.listaItemVenda}"
 							var="itemVenda" styleClass="table table-striped table-hover">
+							
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{itemVenda.produto.id}" />
+							</h:column>
+							
 							<h:column>
 								<f:facet name="header">Nome</f:facet>
 								<h:outputLabel value="#{itemVenda.produto.nome}" />
@@ -44,7 +50,7 @@
 							<h:column>
 								<f:facet name="header">Ação</f:facet>
 								<h:commandButton value="remover"
-									actionListener="#{carrinhoController.remover(itemVenda.id)}">
+									actionListener="#{carrinhoController.remover(itemVenda.produto.id)}">
 									<f:ajax render="@form" execute="@this" />
 								</h:commandButton>
 							</h:column>

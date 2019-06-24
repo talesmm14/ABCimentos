@@ -69,10 +69,6 @@
 								<h:column>
 									<f:facet name="header">Email</f:facet>
 									<h:outputLabel value="#{cliente.email}" />
-									<h:commandButton value="Pedido"
-										actionListener="#{carrinhoController.pedido(cliente.nome)}">
-										<f:ajax render="@all" execute="@this" />
-									</h:commandButton>
 								</h:column>
 
 							</h:dataTable>
