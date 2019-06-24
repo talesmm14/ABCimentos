@@ -31,8 +31,12 @@ public class ItemVendaDAO extends DAO<ItemVenda>  {
 													" i.valor, "+
 													" i.idvenda, "+
 													" i.idproduto, "+
+													" s.nome, "+
 													" s.descricao, "+
-													" s.valor"+
+													" s.quantidade, "+
+													" s.peso, "+
+													" s.unidade, "+
+													" s.valor as valorproduto "+
 													"FROM "+
 													" itemvenda i, "+
 													" produto s "+

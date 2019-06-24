@@ -11,11 +11,19 @@
 		<div class="carrinho">
 			<div class="quick-press">
 				<div class="clearfix">
-					<div class="mb-3">
-						<h:outputLabel value="Cliente: " styleClass="control-label" />
-					</div>
-					<hr/>
+
+					<hr />
 					<h:form id="formDataTablePro" styleClass="form-horizontal">
+						<div class="mb-3">
+							<h:outputLabel value="Cliente: " styleClass="control-label" />
+							<h:selectOneMenu id="empresa"
+								value="#{carrinhoController.cliente.nome}" required="true"
+								requiredMessage="Cliente obrigatório">
+								<f:selectItem itemValue="" itemLabel="Selecione um CLiente" />
+								<f:selectItems value="#{clienteController.listaCliente}" var="cli"
+									itemLabel="#{cli.nome}" itemValue="#{cli}" />
+							</h:selectOneMenu>
+						</div>
 
 						<h:dataTable value="#{carrinhoController.venda.listaItemVenda}"
 							var="itemVenda" styleClass="table table-striped table-hover">

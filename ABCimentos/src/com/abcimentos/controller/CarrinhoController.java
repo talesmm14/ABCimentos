@@ -11,7 +11,6 @@ import com.abcimentos.application.Session;
 import com.abcimentos.application.Util;
 import com.abcimentos.dao.ProdutoDAO;
 import com.abcimentos.dao.VendaDAO;
-import com.abcimentos.model.Cliente;
 import com.abcimentos.model.ItemVenda;
 import com.abcimentos.model.Produto;
 import com.abcimentos.model.Usuario;
@@ -26,7 +25,7 @@ public class CarrinhoController  implements Serializable {
 
 	private Venda venda;
 	
-	private String nome;
+	private String cliente;
 	
 	public void remover(int id) {
 		// implementar
@@ -35,7 +34,8 @@ public class CarrinhoController  implements Serializable {
 	
 	public void finalizar() {
 		// implementar escolhendo o cliente no pedido
-		getVenda().setCliente("teste");
+		System.out.println(cliente);
+		getVenda().setCliente(cliente);
 		getVenda().setUsuario((Usuario)Session.getInstance().getAttribute("usuarioLogado"));
 		VendaDAO dao = new VendaDAO();
 		dao.create(getVenda());
@@ -61,14 +61,7 @@ public class CarrinhoController  implements Serializable {
 		this.venda = venda;
 	}
 	
-
 	
-	public void pedido(String nome1) {
-		this.nome = nome1;
-		System.out.println(nome);
-		Util.redirect("vendaproduto.xhtml");
-	}
-
 	public void adicionar(int id) {
 		// pesquisa o produto selecionado
 		ProdutoDAO dao = new ProdutoDAO();
@@ -97,5 +90,12 @@ public class CarrinhoController  implements Serializable {
 		Util.addMessageError("Adicionado com Sucesso! ");
 	}
 
+	public String getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
 	
 }
