@@ -13,91 +13,69 @@
 </h:head>
 <h:body>
 	<ui:insert name="menu">
-	<div class="admin-panel clearfix">
-		<div class="slidebar">
-			<div class="logo">
-				<a href="menu.xhtml"></a>
-			</div>
-			<h:form>
-				<ul>
-					<li><a href="../template.xhtml" id="targeted">Início</a></li>
-					<li>
-						<a >
-							<h:commandLink value="Clientes" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cliente.xhtml')}" />
-						</a>
-					</li>
-					<li>
-						<a >
-							<h:commandLink value="Produtos" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/produto.xhtml')}" />
-						</a>
-					</li>
-					<h:panelGroup rendered="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}">
-						<li >
-							<a >
-								<h:commandLink value="Funcionarios"
-									action="#{templateController.redirecionar('/ABCimentos/faces/pages/usuario.xhtml')}" />
-							</a>
-						</li>
+		<div class="admin-panel clearfix">
+			<div class="slidebar">
+				<div class="logo">
+					<a href="menu.xhtml"></a>
+				</div>
+				<h:form>
+					<ul>
+						<li><a href="../template.xhtml" id="targeted">Início</a></li>
+						<li><a> <h:commandLink value="Clientes"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cliente.xhtml')}" />
+						</a></li>
+						<li><a> <h:commandLink value="Produtos"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/produto.xhtml')}" />
+						</a></li>
+						<h:panelGroup
+							rendered="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}">
+							<li><a> <h:commandLink value="Funcionarios"
+										action="#{templateController.redirecionar('/ABCimentos/faces/pages/usuario.xhtml')}" />
+							</a></li>
 						</h:panelGroup>
-					<li>
-						<a >
-							<h:commandLink value="Cadastro de Produtos" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroProdutos.xhtml')}" />
-						</a>
-					</li>
-					<li>
-						<a >
-							<h:commandLink value="Cadastrar Clientes" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroClientes.xhtml')}" />
-						</a>
-					</li>
-					<h:panelGroup rendered="#{templateController.usuarioLogado.perfil == Perfil.ADMINISTRADOR}">
-						<li>
-							<h:commandLink value="Cadastrar Funcioario" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroUsuarios.xhtml')}" />
+						<li><a> <h:commandLink value="Cadastro de Produtos"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroProdutos.xhtml')}" />
+						</a></li>
+						<li><a> <h:commandLink value="Cadastrar Clientes"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroClientes.xhtml')}" />
+						</a></li>
+						<h:panelGroup
+							rendered="#{templateController.usuarioLogado.perfil == Perfil.ADMINISTRADOR}">
+							<li><h:commandLink value="Cadastrar Funcioario"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroUsuarios.xhtml')}" />
+							</li>
+						</h:panelGroup>
+						<li><a> <h:commandLink value="Fazer Pedido"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/vendaproduto.xhtml')}" />
+						</a></li>
+						<li><a> <h:commandLink value="Histórico de Vendas"
+									action="#{templateController.redirecionar('/ABCimentos/faces/pages/historico.xhtml')}" />
+						</a></li>
+					</ul>
+				</h:form>
+			</div>
+			<div class="main">
+				<h:form>
+					<ul class="topbar clearfix">
+						<li class="usuario"><a href="#"> <h:outputLabel
+									value="Olá #{templateController.usuarioLogado.nome}" />
+						</a></li>
+						<li><h:commandLink value="Sair"
+								action="#{templateController.encerrarSessao}" /></li>
+						<li><h:commandLink
+								value="Pedido (#{templateController.qtdItensCarrinho})"
+								action="#{templateController.redirecionar('/ABCimentos/faces/pages/carrinho.xhtml')}" />
 						</li>
-					</h:panelGroup>
-					<li>
-						<a >
-							<h:commandLink value="Fazer Pedido" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/vendaproduto.xhtml')}" />
-						</a>
-					</li>
-					<li>
-						<a >
-							<h:commandLink value="Histórico de Vendas" 
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/historico.xhtml')}" />
-						</a>
-					</li>
-				</ul>
-			</h:form>
+					</ul>
+				</h:form>
+				<ui:insert name="conteudo">
+					<h1 style="text-align: center;">Bem vindo ao Sistema da AB
+						Cimentos</h1>
+						<h:graphicImage library="img" name='logo.jpg' style="width:800px;"/>
+				</ui:insert>
+			</div>
 		</div>
-		<div class="main">
-			<h:form>
-				<ul class="topbar clearfix">
-					<li class="usuario">
-						<a href="#"> 
-							<h:outputLabel
-								value="Olá #{templateController.usuarioLogado.nome}" />
-						</a>
-					</li>
-					<li>
-						<h:commandLink value="Sair"
-							action="#{templateController.encerrarSessao}" />
-					</li>
-					<li>
-						<h:commandLink value="Pedido (#{templateController.qtdItensCarrinho})"
-								action="#{templateController.redirecionar('/ABCimentos/faces/pages/carrinho.xhtml')}" />	
-					</li>
-				</ul>
-			</h:form>
-			<ui:insert name="conteudo">
-				<h1 style="text-align: center;">Bem vindo ao Sistema da ABCimentos!!</h1>
-			</ui:insert>
-		</div>
-	</div>
+		
 	</ui:insert>
 </h:body>
 </html>

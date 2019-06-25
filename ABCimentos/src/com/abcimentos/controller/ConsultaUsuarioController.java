@@ -44,7 +44,7 @@ public class ConsultaUsuarioController  implements Serializable {
 		Usuario usuario = dao.findById(id);
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		flash.put("usuarioFlash", usuario);
-		Util.redirect("cadastroUsuario.xhtml");
+		Util.redirect("cadastroUsuarios.xhtml");
 	}
 
 	public String getNome() {
