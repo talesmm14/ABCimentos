@@ -27,51 +27,52 @@
 							</h:panelGrid>
 							<hr />
 
+							<div style="height: 450px; overflow: auto;">
+								<h:dataTable value="#{consultaClienteController.listaCliente}"
+									var="cliente" styleClass="table table-striped table-hover">
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										<h:outputLabel value="#{cliente.id}" />
+									</h:column>
 
-							<h:dataTable value="#{consultaClienteController.listaCliente}"
-								var="cliente" styleClass="table table-striped table-hover">
-								<h:column>
-									<f:facet name="header">Id</f:facet>
-									<h:outputLabel value="#{cliente.id}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										<h:commandLink value="#{cliente.nome}"
+											actionListener="#{consultaClienteController.editar(cliente.id)}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Nome</f:facet>
-									<h:commandLink value="#{cliente.nome}"
-										actionListener="#{consultaClienteController.editar(cliente.id)}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">CPF</f:facet>
+										<h:commandLink value="#{cliente.cpf}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">CPF</f:facet>
-									<h:commandLink value="#{cliente.cpf}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">CNPJ</f:facet>
+										<h:outputLabel value="#{cliente.cnpj}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">CNPJ</f:facet>
-									<h:outputLabel value="#{cliente.cnpj}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Endereço</f:facet>
+										<h:outputLabel value="#{cliente.endereco}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Endereço</f:facet>
-									<h:outputLabel value="#{cliente.endereco}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Cidade</f:facet>
+										<h:outputLabel value="#{cliente.cidade}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Cidade</f:facet>
-									<h:outputLabel value="#{cliente.cidade}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Estado</f:facet>
+										<h:outputLabel value="#{cliente.estado.label}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Estado</f:facet>
-									<h:outputLabel value="#{cliente.estado.label}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Email</f:facet>
+										<h:outputLabel value="#{cliente.email}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Email</f:facet>
-									<h:outputLabel value="#{cliente.email}" />
-								</h:column>
-
-							</h:dataTable>
+								</h:dataTable>
+							</div>
 						</div>
 					</h:form>
 				</div>

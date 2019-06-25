@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import com.abcimentos.application.Session;
 import com.abcimentos.application.Util;
+import com.abcimentos.dao.ItemVendaDAO;
 import com.abcimentos.dao.ProdutoDAO;
 import com.abcimentos.dao.VendaDAO;
 import com.abcimentos.model.Cliente;
@@ -27,43 +28,36 @@ public class CarrinhoController implements Serializable {
 
 	private Cliente cliente;
 
-	public void remover(int idvenda) {
-		// pesquisa o produto selecionado
-		ProdutoDAO dao = new ProdutoDAO();
-		Produto produto = dao.findById(idvenda);
-
-		// verifica se existe o carrinho na sessao
-		if (Session.getInstance().getAttribute("carrinho") == null) {
-			// adiciona o carrinho na sessao
-			Session.getInstance().setAttribute("carrinho", new ArrayList<ItemVenda>());
-		}
+	public void remover(ItemVenda itemvenda) {
+		System.out.println("0.teste: " + itemvenda);
 		// busca o carrinho da sessao
 		List<ItemVenda> carrinho = (List<ItemVenda>) Session.getInstance().getAttribute("carrinho");
-		
-		System.out.println("1." +idvenda);
-		
-		//procura e remove o item do carrinho
-		for (ItemVenda itemVenda : carrinho) {
-			System.out.println("2." + itemVenda.getId());
-			if (itemVenda.getId() == idvenda) {
-				System.out.println("3." +itemVenda.getId());
-				carrinho.remove(itemVenda);
-				break;
-			}
-		}
-		
+
+		carrinho.remove(itemvenda);
+
 		// atualiza o carrinho
 		Session.getInstance().setAttribute("carrinho", carrinho);
 
 		Util.addMessageError("Item removido com Sucesso! ");
 	}
-
+	
 	public void finalizar() {
+		//verifica se existem itens na lista
+		List<ItemVenda> carrinho = (List<ItemVenda>) Session.getInstance().getAttribute("carrinho");
+		if(carrinho.isEmpty()) {
+			Util.addMessageError("Carrinho sem itens");
+			return;
+		}
 		System.out.println(cliente.getNome());
 		getVenda().setCliente(cliente.getNome());
 		getVenda().setUsuario((Usuario) Session.getInstance().getAttribute("usuarioLogado"));
 		VendaDAO dao = new VendaDAO();
 		dao.create(getVenda());
+		// atualiza o carrinho
+		carrinho = null;
+		Session.getInstance().setAttribute("carrinho", carrinho);
+		
+		Util.addMessageError("Venda realizada com sucesso!");
 	}
 
 	public Venda getVenda() {

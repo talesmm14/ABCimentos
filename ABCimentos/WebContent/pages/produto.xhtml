@@ -3,32 +3,33 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	<ui:composition template="../template.xhtml">
-		<ui:define name="conteudo">
-			<h2 class="header" style="text-align: center;">
-				<span class="icon"></span>Produtos
-			</h2>
-			<div class="produtos">
-				<div class="quick-press">
-					<div class="clearfix">
-						<h:form id="formDataTablePro" styleClass="form-horizontal">
+<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">
+		<h2 class="header" style="text-align: center;">
+			<span class="icon"></span>Produtos
+		</h2>
+		<div class="produtos">
+			<div class="quick-press">
+				<div class="clearfix">
+					<h:form id="formDataTablePro" styleClass="form-horizontal">
 
-							<div class="md-3">
-								<h:panelGrid id="panelForm" columns="3">
+						<div class="md-3">
+							<h:panelGrid id="panelForm" columns="3">
 
-									<h:outputLabel value="Nome: " />
-									<h:inputText value="#{consultaProdutosController.nome}" />
+								<h:outputLabel value="Nome: " />
+								<h:inputText value="#{consultaProdutosController.nome}" />
 
-									<h:commandButton value="Pesquisar"
-										actionListener="#{consultaProdutosController.pesquisar}">
-										<f:ajax execute="panelForm" render="@all" />
-									</h:commandButton>
+								<h:commandButton value="Pesquisar"
+									actionListener="#{consultaProdutosController.pesquisar}">
+									<f:ajax execute="panelForm" render="@all" />
+								</h:commandButton>
 
-								</h:panelGrid>
-								<hr/>
-								
-								<h:dataTable value="#{consultaProdutosController.listaProduto}" var="produto" 
-										styleClass="table table-striped table-hover">
+							</h:panelGrid>
+							<hr />
+
+							<div style="height: 450px; overflow: auto;">
+								<h:dataTable value="#{consultaProdutosController.listaProduto}"
+									var="produto" styleClass="table table-striped table-hover">
 									<h:column>
 										<f:facet name="header">Id</f:facet>
 										<h:outputLabel value="#{produto.id}" />
@@ -59,17 +60,18 @@
 										<f:facet name="header">Unidade</f:facet>
 										<h:outputLabel value="#{produto.unidade}" />
 									</h:column>
-									
+
 									<h:column>
 										<f:facet name="header">Valor</f:facet>
 										<h:outputLabel value="#{produto.valor}" />
 									</h:column>
 								</h:dataTable>
 							</div>
-						</h:form>
-					</div>
+						</div>
+					</h:form>
 				</div>
 			</div>
-		</ui:define>
-		</ui:composition>
+		</div>
+	</ui:define>
+</ui:composition>
 </html>

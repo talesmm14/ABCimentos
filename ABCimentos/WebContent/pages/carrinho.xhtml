@@ -14,26 +14,26 @@
 
 					<hr />
 					<h:form id="formDataTablePro" styleClass="form-horizontal">
-					<h:messages id="messages" style="color:red" globalOnly="false" />
+						<h:messages id="messages" style="color:red" globalOnly="false" />
 						<div class="mb-3">
 							<h:outputLabel value="Cliente: " styleClass="control-label" />
 							<h:selectOneMenu id="cliente"
 								value="#{carrinhoController.cliente.nome}" required="true"
 								requiredMessage="Cliente obrigatório">
 								<f:selectItem itemValue="" itemLabel="Selecione um Cliente" />
-								<f:selectItems value="#{clienteController.listaCliente}" var="cli"
-									itemLabel="#{cli.nome}" itemValue="#{cli}" />
+								<f:selectItems value="#{clienteController.listaCliente}"
+									var="cli" itemLabel="#{cli.nome}" itemValue="#{cli}" />
 							</h:selectOneMenu>
 						</div>
 
 						<h:dataTable value="#{carrinhoController.venda.listaItemVenda}"
-							var="itemVenda" styleClass="table table-striped table-hover">
-							
+							var="itemVenda" styleClass="table table-striped table-hover" id="dtLista">
+
 							<h:column>
 								<f:facet name="header">Id</f:facet>
 								<h:outputLabel value="#{itemVenda.produto.id}" />
 							</h:column>
-							
+
 							<h:column>
 								<f:facet name="header">Nome</f:facet>
 								<h:outputLabel value="#{itemVenda.produto.nome}" />
@@ -50,15 +50,16 @@
 							<h:column>
 								<f:facet name="header">Ação</f:facet>
 								<h:commandButton value="remover"
-									actionListener="#{carrinhoController.remover(itemVenda.produto.id)}">
+									actionListener="#{carrinhoController.remover(itemVenda)}">
 									<f:ajax render="@form" execute="@this" />
 								</h:commandButton>
 							</h:column>
 						</h:dataTable>
-						<h:commandButton value="Finalizar Venda"
-							actionListener="#{carrinhoController.finalizar}">
-							<f:ajax execute="@form" render="@form" />
-						</h:commandButton>
+							<h:commandButton value="Finalizar Venda" 
+								disabled=""
+								actionListener="#{carrinhoController.finalizar}">
+								<f:ajax execute="@form" render="@form" />
+							</h:commandButton>
 					</h:form>
 				</div>
 			</div>

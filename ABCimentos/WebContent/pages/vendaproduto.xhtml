@@ -27,48 +27,49 @@
 							</h:panelGrid>
 							<hr />
 							<br />
+							<div style="height: 450px; overflow: auto;">
+								<h:dataTable value="#{vendaProdutoController.listaProduto}"
+									var="produto" styleClass="table table-striped table-hover">
+									<h:column>
+										<f:facet name="header">Id</f:facet>
+										<h:outputLabel value="#{produto.id}" />
+									</h:column>
 
-							<h:dataTable value="#{vendaProdutoController.listaProduto}"
-								var="produto" styleClass="table table-striped table-hover">
-								<h:column>
-									<f:facet name="header">Id</f:facet>
-									<h:outputLabel value="#{produto.id}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Nome</f:facet>
+										<h:commandLink value="#{produto.nome}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Nome</f:facet>
-									<h:commandLink value="#{produto.nome}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Descrição</f:facet>
+										<h:commandLink value="#{produto.descricao}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Descrição</f:facet>
-									<h:commandLink value="#{produto.descricao}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Quantidade</f:facet>
+										<h:outputLabel value="#{produto.quantidade}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Quantidade</f:facet>
-									<h:outputLabel value="#{produto.quantidade}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Peso</f:facet>
+										<h:outputLabel value="#{produto.peso}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Peso</f:facet>
-									<h:outputLabel value="#{produto.peso}" />
-								</h:column>
+									<h:column>
+										<f:facet name="header">Unidade</f:facet>
+										<h:outputLabel value="#{produto.unidade}" />
+									</h:column>
 
-								<h:column>
-									<f:facet name="header">Unidade</f:facet>
-									<h:outputLabel value="#{produto.unidade}" />
-								</h:column>
-
-								<h:column>
-									<f:facet name="header">Valor</f:facet>
-									<h:outputLabel value="#{produto.valor}" />
-									<h:commandButton value="Adicionar Carrinho"
-										actionListener="#{vendaProdutoController.adicionar(produto.id)}">
-										<f:ajax render="@all" execute="@this" />
-									</h:commandButton>
-								</h:column>
-							</h:dataTable>
+									<h:column>
+										<f:facet name="header">Valor</f:facet>
+										<h:outputLabel value="#{produto.valor}" />
+										<h:commandButton value="Adicionar Carrinho"
+											actionListener="#{vendaProdutoController.adicionar(produto.id)}">
+											<f:ajax render="@all" execute="@this" />
+										</h:commandButton>
+									</h:column>
+								</h:dataTable>
+							</div>
 						</div>
 					</h:form>
 				</div>

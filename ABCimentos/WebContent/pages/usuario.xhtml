@@ -3,32 +3,32 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	<ui:composition template="../template.xhtml">
-		<ui:define name="conteudo">
-			<h2 class="header" style="text-align: center;">
-				<span class="icon"></span>Funcionarios
-			</h2>
-			<div class="funcionarios">
-				<div class="quick-press">
-					<div class="clearfix">
-						<h:form id="formDataTableFunc" styleClass="form-horizontal">
+<ui:composition template="../template.xhtml">
+	<ui:define name="conteudo">
+		<h2 class="header" style="text-align: center;">
+			<span class="icon"></span>Funcionarios
+		</h2>
+		<div class="funcionarios">
+			<div class="quick-press">
+				<div class="clearfix">
+					<h:form id="formDataTableFunc" styleClass="form-horizontal">
 
-							<div class="md-3">
-								
-								<h:panelGrid id="panelForm" columns="3">
+						<div class="md-3">
 
-									<h:outputLabel value="Nome: " />
-									<h:inputText value="#{consultaUsuarioController.nome}" />
+							<h:panelGrid id="panelForm" columns="3">
 
-									<h:commandButton value="Pesquisar"
-										actionListener="#{consultaUsuarioController.pesquisar}">
-										<f:ajax execute="panelForm" render="@all" />
-									</h:commandButton>
+								<h:outputLabel value="Nome: " />
+								<h:inputText value="#{consultaUsuarioController.nome}" />
 
-								</h:panelGrid>
-								<hr/>
-								
-								
+								<h:commandButton value="Pesquisar"
+									actionListener="#{consultaUsuarioController.pesquisar}">
+									<f:ajax execute="panelForm" render="@all" />
+								</h:commandButton>
+
+							</h:panelGrid>
+							<hr />
+
+							<div style="height: 450px; overflow: auto;">
 								<h:dataTable value="#{consultaUsuarioController.listaUsuario}"
 									var="obj" styleClass="table table-striped table-hover">
 									<h:column>
@@ -59,10 +59,11 @@
 									</h:column>
 								</h:dataTable>
 							</div>
-						</h:form>
-					</div>
+						</div>
+					</h:form>
 				</div>
 			</div>
+		</div>
 	</ui:define>
-	</ui:composition>
+</ui:composition>
 </html>
