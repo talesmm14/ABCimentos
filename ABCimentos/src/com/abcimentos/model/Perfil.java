@@ -7,7 +7,7 @@ public enum Perfil {
 	
 	ADMINISTRADOR(1, "Administrador", Arrays.asList("cadastroUsuarios.xhtml", "cadastroClientes.xhtml", "cadastroProdutos.xhtml", "produto.xhtml", "cliente.xhtml", "usuario.xhtml", "template.xhtml", "acessonegado.xhtml", "servico.xhtml", "vendaservico.xhtml", "carrinho.xhtml", "historico.xhtml", "detalhesvenda.xhtml")), 
 	GERENTE(2, "Gerente" , Arrays.asList("cadastroClientes.xhtml", "cadastroProdutos.xhtml","produto.xhtml", "cliente.xhtml", "usuario.xhtml", "template.xhtml", "acessonegado.xhtml", "servico.xhtml", "vendaservico.xhtml", "carrinho.xhtml", "historico.xhtml", "detalhesvenda.xhtml")),
-	FUNCIONARIO(4, "Funcionário", Arrays.asList("cadastroClientes.xhtml", "cadastroProdutos.xhtml","produto.xhtml", "cliente.xhtml", "template.xhtml", "acessonegado.xhtml", "servico.xhtml", "vendaservico.xhtml", "carrinho.xhtml", "historico.xhtml", "detalhesvenda.xhtml"));
+	FUNCIONARIO(4, "Funcionário", Arrays.asList("cadastroClientes.xhtml", "produto.xhtml", "cliente.xhtml", "template.xhtml", "acessonegado.xhtml", "servico.xhtml", "vendaservico.xhtml", "carrinho.xhtml", "historico.xhtml", "detalhesvenda.xhtml"));
 
 	private int value;
 	private String label;

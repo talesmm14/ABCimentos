@@ -16,11 +16,11 @@
 		<div class="admin-panel clearfix">
 			<div class="slidebar">
 				<div class="logo">
-					<a href="menu.xhtml"></a>
+					<a href="/ABCimentos/faces/template.xhtml"></a>
 				</div>
 				<h:form>
 					<ul>
-						<li><a href="../template.xhtml" id="targeted">Início</a></li>
+						<li><a href="/ABCimentos/faces/template.xhtml" id="targeted">Início</a></li>
 						<li><a> <h:commandLink value="Clientes"
 									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cliente.xhtml')}" />
 						</a></li>
@@ -28,19 +28,22 @@
 									action="#{templateController.redirecionar('/ABCimentos/faces/pages/produto.xhtml')}" />
 						</a></li>
 						<h:panelGroup
-							rendered="#{templateController.usuarioLogado.perfil != Perfil.ADMINISTRADOR}">
+							rendered="#{templateController.usuarioLogado.perfil.value == 1}">
 							<li><a> <h:commandLink value="Funcionarios"
 										action="#{templateController.redirecionar('/ABCimentos/faces/pages/usuario.xhtml')}" />
 							</a></li>
 						</h:panelGroup>
-						<li><a> <h:commandLink value="Cadastro de Produtos"
-									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroProdutos.xhtml')}" />
-						</a></li>
+						<h:panelGroup
+							rendered="#{templateController.usuarioLogado.perfil.value == 1 || templateController.usuarioLogado.perfil.value == 2}">
+							<li><a> <h:commandLink value="Cadastro de Produtos"
+										action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroProdutos.xhtml')}" />
+							</a></li>
+						</h:panelGroup>
 						<li><a> <h:commandLink value="Cadastrar Clientes"
 									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroClientes.xhtml')}" />
 						</a></li>
 						<h:panelGroup
-							rendered="#{templateController.usuarioLogado.perfil == Perfil.ADMINISTRADOR}">
+							rendered="#{templateController.usuarioLogado.perfil.value == 1}">
 							<li><h:commandLink value="Cadastrar Funcioario"
 									action="#{templateController.redirecionar('/ABCimentos/faces/pages/cadastroUsuarios.xhtml')}" />
 							</li>
@@ -71,11 +74,11 @@
 				<ui:insert name="conteudo">
 					<h1 style="text-align: center;">Bem vindo ao Sistema da AB
 						Cimentos</h1>
-						<h:graphicImage library="img" name='logo.jpg' style="width:800px;"/>
+					<h:graphicImage library="img" name='logo.jpg' style="width:100%; " />
 				</ui:insert>
 			</div>
 		</div>
-		
+
 	</ui:insert>
 </h:body>
 </html>
